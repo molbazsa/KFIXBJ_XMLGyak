@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<mozi>
+
+  <film id="film01" mufaj="vigjatek">
+    <rendezo>John Doe</rendezo>
+    <forgatokonyviro>John Doe</forgatokonyviro>
+    <dramaturg>Other Doe</dramaturg>
+    <szinesz>
+      <foszereplo id="szin01" nev="John Doe" />
+      <mellekszereplo id="szin02" nev="Other Doe" />
+      <mellekszereplo id="szin02" nev="Next Doe" />
+    </szinesz>
+  </film>
+
+  <film id="film02" mufaj="drama">
+    <rendezo>John Doe</rendezo>
+    <forgatokonyviro>John Doe</forgatokonyviro>
+    <dramaturg>Other Doe</dramaturg>
+    <szinesz>
+      <foszereplo id="szin02" nev="Other Doe" />
+      <mellekszereplo id="szin01" nev="John Doe" />
+      <mellekszereplo id="szin02" nev="Next Doe" />
+    </szinesz>
+  </film>
+
+</mozi>

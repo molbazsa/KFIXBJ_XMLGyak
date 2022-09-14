@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<mozi>
+  <film id="film01" mufaj="vigjatek">
+    <rendezo id="rend01" nev="John Doe" />
+    <iro id="iro01" nev="John Doe" />
+    <szinesz id="szin01" nev="John Doe" />
+  </film>
+</mozi>
