@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<konferencia>
+  <cim>Mesterséges intelligencia</cim>
+  <eloado>
+    <nev>Tóth István</nev>
+    <lakcim>3520 Miskolc, Wesselényi u. 12.</lakcim>
+    <adoszam>3823655136</adoszam>
+  </eloado>
+  <helyszin>Miskolci Egyetem, III. előadó</helyszin>
+  <datum>
+    <ev>2022</ev>
+    <honap>10</honap>
+    <nap>01</nap>
+    <idopont>13:00</idopont>
+  </datum>
+
+  <hallgatok>
+    <hallgato>
+      <nev>Gál Gabriella</nev>
+      <lakcim>3530 Miskolc, Hegyalja út 80.</lakcim>
+    </hallgato>
+    <hallgato>
+      <nev>Hegedűs Zoltán</nev>
+      <lakcim>3534 Miskolc, Kossuth Lajos u. 73.</lakcim>
+    </hallgato>
+  </hallgatok>
+</konferencia>
