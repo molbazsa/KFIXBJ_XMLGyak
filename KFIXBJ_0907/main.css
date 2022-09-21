@@ -27,20 +27,24 @@ img {
 }
 
 header {
-    padding-bottom: 30px;
+    padding-top: 30px;
     border-bottom: 1px solid #aaaaaa;
 }
 
 header img {
     width: 300px;
-    margin: 30px auto;
+    margin: auto;
+}
+
+#menu-bar {
+    padding: 30px;
 }
 
 #menu-bar ul {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 #current {
@@ -49,4 +53,24 @@ header img {
 
 main {
     padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.summary h1 {
+    margin-bottom: 10px;
+}
+
+.summary ol {
+    margin-left: 1em;
+}
+
+.summary ol li {
+    padding-left: 0.5em;
+}
+
+main img {
+    display: block;
+    max-width: 300px;
 }
