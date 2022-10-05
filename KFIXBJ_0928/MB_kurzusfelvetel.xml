@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MB_kurzusfelvetel SYSTEM "./MB_kurzusfelvetel.dtd">
+
+<MB_kurzusfelvetel>
+
+  <kurzus>
+    <targy>Mesterséges intelligencia</targy>
+    <idopont>
+      <nap>kedd</nap>
+      <tol>09:00</tol>
+      <ig>12:00</ig>
+    </idopont>
+    <idopont>
+      <nap>szerda</nap>
+      <tol>14:00</tol>
+      <ig>15:00</ig>
+    </idopont>
+    <oraado>Kunné Dr. Tamás Judit</oraado>
+  </kurzus>
+
+  <kurzus jovahagyas="igen">
+    <targy>Adatkezelés XML-ben</targy>
+    <idopont>
+      <nap>kedd</nap>
+      <tol>12:00</tol>
+      <ig>14:00</ig>
+    </idopont>
+    <idopont>
+      <nap>szerda</nap>
+      <tol>12:00</tol>
+      <ig>14:00</ig>
+    </idopont>
+    <oktato>Dr. Bednarik László</oktato>
+  </kurzus>
+
+</MB_kurzusfelvetel>

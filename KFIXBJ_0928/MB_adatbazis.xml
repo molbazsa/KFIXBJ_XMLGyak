@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE adatbazis SYSTEM "./MB_adatbazis.dtd">
+
+<adatbazis>
+
+  <dolgozo kod="d001">
+    <nev>Mészáros Attila</nev>
+    <fizetes>200000</fizetes>
+  </dolgozo>
+
+  <dolgozo kod="d002">
+    <nev>Vass Zsombor</nev>
+    <fizetes>300000</fizetes>
+  </dolgozo>
+
+  <dolgozo kod="d003">
+    <nev>Hajdú Patrícia</nev>
+    <fizetes>400000</fizetes>
+  </dolgozo>
+
+</adatbazis>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MBmodell SYSTEM "./MB_ertodtd.dtd">
+
+<MBmodell>
+
+  <A a="A01">
+    <b>
+      <x>x1</x>
+      <y>y1</y>
+    </b>
+    <c>
+      <d>d1</d>
+      <e>e1</e>
+    </c>
+  </A>
+
+  <A a="A02">
+    <b>
+      <x>x2</x>
+      <y>y2</y>
+    </b>
+    <c>
+      <d>d2</d>
+      <e>e2</e>
+    </c>
+  </A>
+  
+  <B a="B01" c="C01">
+    <b>
+      <x>x1</x>
+      <y>y1</y>
+    </b>
+  </B>
+
+  <B a="B02" c="C01">
+    <b>
+      <x>x2</x>
+      <y>y2</y>
+    </b>
+  </B>
+
+  <C a="C01">
+    <C-b>b1</C-b>
+  </C>
+
+  <AB a="A01" b="B01">
+    <AB-c>c1</AB-c>
+  </AB>
+
+  <AB a="A01" b="B02">
+    <AB-c>c2</AB-c>
+  </AB>
+
+  <AB a="A02" b="B01">
+    <AB-c>c3</AB-c>
+  </AB>
+
+</MBmodell>

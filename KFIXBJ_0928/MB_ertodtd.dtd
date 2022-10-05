@@ -1,0 +1,29 @@
+<!ELEMENT MBmodell (A*, B*, C*, AB*)>
+
+<!ELEMENT A (b, c)>
+<!ATTLIST A a ID #REQUIRED>
+
+<!ELEMENT B (b)>
+<!ATTLIST B
+  a ID #REQUIRED
+  c IDREF #REQUIRED
+>
+
+<!ELEMENT b (x, y)>
+<!ELEMENT x (#PCDATA)>
+<!ELEMENT y (#PCDATA)>
+
+<!ELEMENT c (d, e)>
+<!ELEMENT d (#PCDATA)>
+<!ELEMENT e (#PCDATA)>
+
+<!ELEMENT C (C-b)>
+<!ATTLIST C a ID #REQUIRED>
+<!ELEMENT C-b (#PCDATA)>
+
+<!ELEMENT AB (AB-c)>
+<!ATTLIST AB
+  a IDREF #REQUIRED
+  b IDREF #REQUIRED
+>
+<!ELEMENT AB-c (#PCDATA)>

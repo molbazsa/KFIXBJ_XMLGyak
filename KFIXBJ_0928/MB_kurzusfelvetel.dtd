@@ -1,0 +1,13 @@
+<!ELEMENT MB_kurzusfelvetel (kurzus*)>
+
+<!ELEMENT kurzus (targy, idopont+, (oktato|oraado)?)>
+<!ATTLIST kurzus jovahagyas (igen|nem) "nem">
+
+<!ELEMENT idopont (nap, tol, ig)>
+<!ELEMENT nap (#PCDATA)>
+<!ELEMENT tol (#PCDATA)>
+<!ELEMENT ig (#PCDATA)>
+
+<!ELEMENT targy (#PCDATA)>
+<!ELEMENT oktato (#PCDATA)>
+<!ELEMENT oraado (#PCDATA)>
