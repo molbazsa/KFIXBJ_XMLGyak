@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:simpleType name="oraTipus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="eloadas" />
+      <xs:enumeration value="gyakorlat" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="napTipus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="hetfo" />
+      <xs:enumeration value="kedd" />
+      <xs:enumeration value="szerda" />
+      <xs:enumeration value="csutortok" />
+      <xs:enumeration value="pentek" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="targy" type="xs:string" />
+
+  <xs:element name="idopont">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="nap" type="napTipus" />
+        <xs:element name="tol" type="xs:time" />
+        <xs:element name="ig" type="xs:time" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="helyszin" type="xs:string" />
+  <xs:element name="oktato" type="xs:string" />
+  <xs:element name="oraado" type="xs:string" />
+  <xs:element name="szak" type="xs:string" />
+
+  <xs:element name="ora">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="targy" />
+        <xs:element ref="idopont" />
+        <xs:element ref="helyszin" />
+        <xs:choice minOccurs="1" maxOccurs="1">
+          <xs:element ref="oktato" />
+          <xs:element ref="oraado" />
+        </xs:choice>
+        <xs:element ref="szak" />
+      </xs:sequence>
+
+      <xs:attribute name="id" type="xs:ID" />
+      <xs:attribute name="tipus" type="oraTipus" default="eloadas" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="MB_orarend">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ora" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
