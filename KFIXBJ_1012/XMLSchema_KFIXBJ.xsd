@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="vendeglatas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="etterem" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+
+    <!-- Kulcsok -->
+    <xs:key name="etterem_kulcs">
+      <xs:selector xpath="etterem" />
+      <xs:field xpath="@ekod" />
+    </xs:key>
+  </xs:element>
+
+  <xs:element name="etterem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="nev" type="xs:string" />
+        <xs:element name="cim" />
+        <xs:element name="csillag" type="xs:integer" />
+      </xs:sequence>
+
+      <xs:attribute name="ekod" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

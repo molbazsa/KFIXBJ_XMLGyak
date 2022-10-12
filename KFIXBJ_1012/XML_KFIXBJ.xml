@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vendeglatas 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+  xs:noNamespaceSchemaLocation="./XMLSchema_KFIXBJ.xsd"
+>
+  <!-- Éttermek -->
+  <etterem ekod="ett001">
+    <nev>Diófa Étterem</nev>
+    <cim>
+      <varos>Miskolc</varos>
+      <utca>Petőfi utca</utca>
+      <hazszam>2.</hazszam>
+    </cim>
+    <csillag>3</csillag>
+  </etterem>
+
+  <etterem ekod="ett002">
+    <nev>Kakas Étterem</nev>
+    <cim>
+      <varos>Szeged</varos>
+      <utca>Kossuth Lajos út</utca>
+      <hazszam>12.</hazszam>
+    </cim>
+    <csillag>5</csillag>
+  </etterem>
+
+  <etterem ekod="ett003">
+    <nev>Rákóczi Étterem</nev>
+    <cim>
+      <varos>Pécs</varos>
+      <utca>Ady Endre utca</utca>
+      <hazszam>20.</hazszam>
+    </cim>
+    <csillag>4</csillag>
+  </etterem>
+
+  <!-- Főszakácsok -->
+  <foszakacs fkod="fo001" e_f="ett001">
+    <nev>Tóth István</nev>
+    <eletkor>30</eletkor>
+    <vegzettseg>szakközépiskola</vegzettseg>
+    <vegzettseg>Institut Paul Bocuse</vegzettseg>:00
+  </foszakacs>
+
+  <foszakacs fkod="fo002" e_f="ett002">
+    <nev>Gál Gabriella</nev>
+    <eletkor>32</eletkor>
+    <vegzettseg>Le Cordon Bleu</vegzettseg>
+  </foszakacs>
+
+  <foszakacs fkod="fo003" e_f="ett003">
+    <nev>Hegedűs Zoltán</nev>
+    <eletkor>40</eletkor>
+    <vegzettseg>szakközépiskola</vegzettseg>
+  </foszakacs>
+
+  <!-- Szakácsok -->
+  <szakacs szkod="szak001" e_sz="ett001">
+    <nev>Juhász Péter</nev>
+    <reszleg>saucer</reszleg>
+    <vegzettseg>szakközépiskola</vegzettseg>
+    <vegzettseg>Institut Paul Bocuse</vegzettseg>
+  </szakacs>
+
+  <szakacs szkod="szak002" e_sz="ett002">
+    <nev>Szűcs Erzsébet</nev>
+    <reszleg>saucer</reszleg>
+    <vegzettseg>Le Cordon Bleu</vegzettseg>
+  </szakacs>
+
+  <szakacs szkod="szak003" e_sz="ett003">
+    <nev>Tóth Zsombor</nev>
+    <reszleg>saucer</reszleg>
+    <vegzettseg>szakközépiskola</vegzettseg>
+  </szakacs>
+
+  <!-- Gyakornokok -->
+  <gyakornok gykod="gy001" e_gy="ett001">
+    <nev>Bordás Dávid</nev>
+    <gyakorlat>
+      <kezdete>2022.06.01</kezdete>
+      <idotartama>3</idotartama>
+    </gyakorlat>
+    <muszak>délelőtt</muszak>
+    <muszak>este</muszak>
+  </gyakornok>
+
+  <gyakornok gykod="gy002" e_gy="ett002">
+    <nev>Szűcs Erzsébet</nev>
+    <gyakorlat>
+      <kezdete>2022.07.01</kezdete>
+      <idotartama>4</idotartama>
+    </gyakorlat>
+    <muszak>délelőtt</muszak>
+  </gyakornok>
+
+  <gyakornok gykod="gy003" e_gy="ett003">
+    <nev>Tóth Zsombor</nev>
+    <gyakorlat>
+      <kezdete>2022.08.01</kezdete>
+      <idotartama>6</idotartama>
+    </gyakorlat>
+    <muszak>délelőtt</muszak>
+  </gyakornok>
+
+  <!-- Vendégek -->
+  <vendeg vkod="v001">
+    <nev>Hegedűs Zoltán</nev>
+    <eletkor>21</eletkor>
+    <cim>
+      <varos>Miskolc</varos>
+      <utca>Juhász Gyula utca</utca>
+      <hazszam>25.</hazszam>
+    </cim>
+  </vendeg>
+
+  <!-- Rendelések -->
+  <rendeles e_v_e="ett002" e_v_v="v001">
+    <osszeg>8000</osszeg>
+    <etel>Steak</etel>
+  </rendeles>
+</vendeglatas>
