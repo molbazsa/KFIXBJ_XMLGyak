@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:simpleType name="tanevTipus">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{4}/[0-9]{2} II?\." />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="egyetemTipus">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="2" />
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="napTipus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="hetfo" />
+      <xs:enumeration value="kedd" />
+      <xs:enumeration value="szerda" />
+      <xs:enumeration value="csutortok" />
+      <xs:enumeration value="pentek" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="jovahagyasTipus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="igen" />
+      <xs:enumeration value="nem" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="targy" type="xs:string" />
+  <xs:element name="oktato" type="xs:string" />
+  <xs:element name="oraado" type="xs:string" />
+
+  <xs:attribute name="jovahagyas" type="jovahagyasTipus" default="nem" />
+
+  <xs:element name="idopont">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="nap" type="napTipus" />
+        <xs:element name="tol" type="xs:time" />
+        <xs:element name="ig" type="xs:time" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="kurzus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="targy" />
+        <xs:element ref="idopont" maxOccurs="2" />
+        <xs:choice>
+          <xs:element ref="oktato" />
+          <xs:element ref="oraado" />
+        </xs:choice>
+      </xs:sequence>
+
+      <xs:attribute ref="jovahagyas" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="MB_kurzusfelvetel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="kurzus" maxOccurs="unbounded" />
+      </xs:sequence>
+
+      <xs:attribute name="tanev" type="tanevTipus" />
+      <xs:attribute name="egyetem" type="egyetemTipus" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
