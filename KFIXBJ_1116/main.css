@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+h2 {
+  margin: 10px;
+}
+
+table {
+  margin: 10px auto;
+  border-collapse: collapse;
+}
+
+thead {
+  border-bottom: 2px solid black;
+}
+
+th {
+  text-align: left;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid black;
+}
