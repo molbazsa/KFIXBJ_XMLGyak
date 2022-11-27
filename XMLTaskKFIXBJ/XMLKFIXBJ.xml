@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vonatjegyek xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="XMLSchemaKFIXBJ.xsd">
+    <!-- Állomások -->
+    <allomas aid="a1">
+        <iranyitoszam>1087</iranyitoszam>
+        <utca>Kerepesi út</utca>
+        <hazszam>2-4.</hazszam>
+        <nev>Budapest-Keleti</nev>
+    </allomas>
+    <allomas aid="a2">
+        <iranyitoszam>3530</iranyitoszam>
+        <utca>Kandó Kálmán tér</utca>
+        <hazszam>1-3.</hazszam>
+        <nev>Miskolc-Tiszai</nev>
+    </allomas>
+    <allomas aid="a3">
+        <iranyitoszam>6700</iranyitoszam>
+        <utca>Tisza Lajos körút</utca>
+        <hazszam>28-30.</hazszam>
+        <nev>Szeged</nev>
+    </allomas>
+    <allomas aid="a4">
+        <iranyitoszam>7623</iranyitoszam>
+        <utca>Indóház tér</utca>
+        <hazszam>1.</hazszam>
+        <nev>Pécs</nev>
+    </allomas>
+
+    <!-- Állomások távolsága -->
+    <tavolsaga aid1="a1" aid2="a2">
+        <tavolsag>147</tavolsag>
+    </tavolsaga>
+    <tavolsaga aid1="a1" aid2="a3">
+        <tavolsag>162</tavolsag>
+    </tavolsaga>
+    <tavolsaga aid1="a1" aid2="a4">
+        <tavolsag>170</tavolsag>
+    </tavolsaga>
+
+    <!-- Vonatok -->
+    <vonat vid="v1">
+        <vonalszam>1</vonalszam>
+        <indulas>2022-11-29T08:00:00</indulas>
+        <erkezes>2022-11-29T10:30:00</erkezes>
+        <tavolsag>200</tavolsag>
+        <helyjegy-koteles>false</helyjegy-koteles>
+    </vonat>
+    <vonat vid="v2">
+        <vonalszam>2</vonalszam>
+        <indulas>2022-11-29T09:00:00</indulas>
+        <erkezes>2022-11-29T11:00:00</erkezes>
+        <tavolsag>250</tavolsag>
+        <helyjegy-koteles>true</helyjegy-koteles>
+    </vonat>
+    <vonat vid="v3">
+        <vonalszam>3</vonalszam>
+        <indulas>2022-11-29T11:00:00</indulas>
+        <erkezes>2022-11-29T14:30:00</erkezes>
+        <tavolsag>300</tavolsag>
+        <helyjegy-koteles>true</helyjegy-koteles>
+    </vonat>
+
+    <!-- Kocsik -->
+    <kocsi vid="v1" kid="k12">
+        <kocsiosztaly>1</kocsiosztaly>
+    </kocsi>
+    <kocsi vid="v1" kid="k13">
+        <kocsiosztaly>2</kocsiosztaly>
+    </kocsi>
+    <kocsi vid="v1" kid="k14">
+        <kocsiosztaly>2</kocsiosztaly>
+    </kocsi>
+    <kocsi vid="v2" kid="k44">
+        <kocsiosztaly>1</kocsiosztaly>
+    </kocsi>
+    <kocsi vid="v2" kid="k45">
+        <kocsiosztaly>1</kocsiosztaly>
+    </kocsi>
+    <kocsi vid="v2" kid="k46">
+        <kocsiosztaly>2</kocsiosztaly>
+    </kocsi>
+    <kocsi vid="v3" kid="k76">
+        <kocsiosztaly>1</kocsiosztaly>
+    </kocsi>
+    <kocsi vid="v3" kid="k77">
+        <kocsiosztaly>1</kocsiosztaly>
+    </kocsi>
+    <kocsi vid="v3" kid="k78">
+        <kocsiosztaly>2</kocsiosztaly>
+    </kocsi>
+
+    <!-- Vonatok állomásai -->
+    <erinti vid="v1" aid="a1">
+        <vegallomas>true</vegallomas>
+    </erinti>
+    <erinti vid="v1" aid="a2">
+        <vegallomas>false</vegallomas>
+    </erinti>
+    <erinti vid="v1" aid="a3">
+        <vegallomas>true</vegallomas>
+    </erinti>
+    <erinti vid="v2" aid="a1">
+        <vegallomas>true</vegallomas>
+    </erinti>
+    <erinti vid="v2" aid="a2">
+        <vegallomas>false</vegallomas>
+    </erinti>
+    <erinti vid="v2" aid="a3">
+        <vegallomas>false</vegallomas>
+    </erinti>
+    <erinti vid="v2" aid="a4">
+        <vegallomas>true</vegallomas>
+    </erinti>
+
+    <!-- Utasok -->
+    <utas uid="u1">
+        <nev>Szőke Alex</nev>
+        <email>szalex@email.com</email>
+        <email>szoke.alex@email.com</email>
+    </utas>
+    <utas uid="u2">
+        <nev>Farkas Blanka</nev>
+        <email>fblanka@email.com</email>
+    </utas>
+    <utas uid="u3">
+        <nev>Boros Máté</nev>
+        <email>bmate@email.com</email>
+    </utas>
+    <utas uid="u4">
+        <nev>Pap Hanna</nev>
+        <email>phanna@email.com</email>
+        <email>pap.hanna@email.com</email>
+    </utas>
+
+    <!-- Jegyek -->
+    <jegy jid="j1">
+        <utas>u1</utas>
+        <vonat>v1</vonat>
+        <allomas1>a1</allomas1>
+        <allomas2>a2</allomas2>
+        <ar>700</ar>
+    </jegy>
+    <jegy jid="j2">
+        <utas>u2</utas>
+        <vonat>v3</vonat>
+        <allomas1>a2</allomas1>
+        <allomas2>a4</allomas2>
+        <ar>650</ar>
+        <helyjegy hid="h1">
+            <kocsi>k76</kocsi>
+            <ulesszam>12</ulesszam>
+            <ar>150</ar>
+        </helyjegy>
+    </jegy>
+    <jegy jid="j3">
+        <utas>u4</utas>
+        <vonat>v2</vonat>
+        <allomas1>a3</allomas1>
+        <allomas2>a4</allomas2>
+        <ar>700</ar>
+    </jegy>
+</vonatjegyek>

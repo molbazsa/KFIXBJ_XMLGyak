@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="vonatjegyek">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="allomas" type="allomasTipus" maxOccurs="unbounded" />
+                <xs:element name="tavolsaga" type="tavolsagaTipus" maxOccurs="unbounded" />
+                <xs:element name="vonat" type="vonatTipus" maxOccurs="unbounded" />
+                <xs:element name="kocsi" type="kocsiTipus" maxOccurs="unbounded" />
+                <xs:element name="erinti" type="erintiTipus" maxOccurs="unbounded" />
+                <xs:element name="utas" type="utasTipus" maxOccurs="unbounded" />
+                <xs:element name="jegy" type="jegyTipus" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="allomasTipus">
+        <xs:sequence>
+            <xs:element name="iranyitoszam" type="xs:integer" />
+            <xs:element name="utca" type="xs:string" />
+            <xs:element name="hazszam" type="xs:string" />
+            <xs:element name="nev" type="xs:string" />
+        </xs:sequence>
+
+        <xs:attribute name="aid" type="xs:ID" />
+    </xs:complexType>
+
+    <xs:complexType name="tavolsagaTipus">
+        <xs:sequence>
+            <xs:element name="tavolsag" type="xs:integer" />
+        </xs:sequence>
+
+        <xs:attribute name="aid1" type="xs:IDREF" />
+        <xs:attribute name="aid2" type="xs:IDREF" />
+    </xs:complexType>
+
+    <xs:complexType name="vonatTipus">
+        <xs:sequence>
+            <xs:element name="vonalszam" type="xs:integer" />
+            <xs:element name="indulas" type="xs:dateTime" />
+            <xs:element name="erkezes" type="xs:dateTime" />
+            <xs:element name="tavolsag" type="xs:integer" />
+            <xs:element name="helyjegy-koteles" type="xs:boolean" />
+        </xs:sequence>
+
+        <xs:attribute name="vid" type="xs:ID" />
+    </xs:complexType>
+
+    <xs:complexType name="kocsiTipus">
+        <xs:sequence>
+            <xs:element name="kocsiosztaly" type="xs:integer" />
+        </xs:sequence>
+
+        <xs:attribute name="vid" type="xs:IDREF" />
+        <xs:attribute name="kid" type="xs:ID" />
+    </xs:complexType>
+
+    <xs:complexType name="erintiTipus">
+        <xs:sequence>
+            <xs:element name="vegallomas" type="xs:boolean" />
+        </xs:sequence>
+
+        <xs:attribute name="vid" type="xs:IDREF" />
+        <xs:attribute name="aid" type="xs:IDREF" />
+    </xs:complexType>
+
+    <xs:complexType name="utasTipus">
+        <xs:sequence>
+            <xs:element name="nev" type="xs:string" />
+            <xs:element name="email" type="xs:string" maxOccurs="unbounded" />
+        </xs:sequence>
+
+        <xs:attribute name="uid" type="xs:ID" />
+    </xs:complexType>
+
+    <xs:complexType name="jegyTipus">
+        <xs:sequence>
+            <xs:element name="utas" type="xs:IDREF" />
+            <xs:element name="vonat" type="xs:IDREF" />
+            <xs:element name="allomas1" type="xs:IDREF" />
+            <xs:element name="allomas2" type="xs:IDREF" />
+            <xs:element name="ar" type="xs:integer" />
+
+            <xs:element name="helyjegy" type="helyjegyTipus" minOccurs="0" />
+        </xs:sequence>
+
+        <xs:attribute name="jid" type="xs:ID" />
+    </xs:complexType>
+
+    <xs:complexType name="helyjegyTipus">
+        <xs:sequence>
+            <xs:element name="kocsi" type="xs:IDREF" />
+            <xs:element name="ulesszam" type="xs:integer" />
+            <xs:element name="ar" type="xs:integer" />
+        </xs:sequence>
+
+        <xs:attribute name="hid" type="xs:ID" />
+    </xs:complexType>
+</xs:schema>
