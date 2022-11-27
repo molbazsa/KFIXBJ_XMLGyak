@@ -12,6 +12,70 @@
                 <xs:element name="jegy" type="jegyTipus" maxOccurs="unbounded" />
             </xs:sequence>
         </xs:complexType>
+
+        <xs:key name="allomas">
+            <xs:selector xpath="allomas" />
+            <xs:field xpath="@aid" />
+        </xs:key>
+
+        <xs:keyref name="tavolsagaAllomas1" refer="allomas">
+            <xs:selector xpath="tavolsaga" />
+            <xs:field xpath="@aid1" />
+        </xs:keyref>
+        <xs:keyref name="tavolsagaAllomas2" refer="allomas">
+            <xs:selector xpath="tavolsaga" />
+            <xs:field xpath="@aid2" />
+        </xs:keyref>
+
+        <xs:key name="vonat">
+            <xs:selector xpath="vonat" />
+            <xs:field xpath="@vid" />
+        </xs:key>
+
+        <xs:key name="kocsi">
+            <xs:selector xpath="kocsi" />
+            <xs:field xpath="@kid" />
+        </xs:key>
+        <xs:keyref name="kocsiVonat" refer="vonat">
+            <xs:selector xpath="kocsi" />
+            <xs:field xpath="@vid" />
+        </xs:keyref>
+
+        <xs:keyref name="erintiVonat" refer="vonat">
+            <xs:selector xpath="erinti" />
+            <xs:field xpath="@vid" />
+        </xs:keyref>
+        <xs:keyref name="erintiAllomas" refer="allomas">
+            <xs:selector xpath="erinti" />
+            <xs:field xpath="@aid" />
+        </xs:keyref>
+
+        <xs:key name="utas">
+            <xs:selector xpath="utas" />
+            <xs:field xpath="@uid" />
+        </xs:key>
+
+        <xs:keyref name="jegyUtas" refer="utas">
+            <xs:selector xpath="jegy" />
+            <xs:field xpath="utas" />
+        </xs:keyref>
+        <xs:keyref name="jegyVonat" refer="vonat">
+            <xs:selector xpath="jegy" />
+            <xs:field xpath="vonat" />
+        </xs:keyref>
+        <xs:keyref name="jegyAllomas1" refer="allomas">
+            <xs:selector xpath="jegy" />
+            <xs:field xpath="allomas1" />
+        </xs:keyref>
+        <xs:keyref name="jegyAllomas2" refer="allomas">
+            <xs:selector xpath="jegy" />
+            <xs:field xpath="allomas2" />
+        </xs:keyref>
+
+        <xs:keyref name="helyjegyKocsi" refer="kocsi">
+            <xs:selector xpath="jegy/helyjegy" />
+            <xs:field xpath="kocsi" />
+        </xs:keyref>
     </xs:element>
 
     <xs:complexType name="allomasTipus">
@@ -22,7 +86,7 @@
             <xs:element name="nev" type="xs:string" />
         </xs:sequence>
 
-        <xs:attribute name="aid" type="xs:ID" />
+        <xs:attribute name="aid" type="xs:ID" use="required" />
     </xs:complexType>
 
     <xs:complexType name="tavolsagaTipus">
@@ -30,8 +94,8 @@
             <xs:element name="tavolsag" type="xs:integer" />
         </xs:sequence>
 
-        <xs:attribute name="aid1" type="xs:IDREF" />
-        <xs:attribute name="aid2" type="xs:IDREF" />
+        <xs:attribute name="aid1" type="xs:IDREF" use="required" />
+        <xs:attribute name="aid2" type="xs:IDREF" use="required" />
     </xs:complexType>
 
     <xs:complexType name="vonatTipus">
@@ -43,7 +107,7 @@
             <xs:element name="helyjegy-koteles" type="xs:boolean" />
         </xs:sequence>
 
-        <xs:attribute name="vid" type="xs:ID" />
+        <xs:attribute name="vid" type="xs:ID" use="required" />
     </xs:complexType>
 
     <xs:complexType name="kocsiTipus">
@@ -51,8 +115,8 @@
             <xs:element name="kocsiosztaly" type="xs:integer" />
         </xs:sequence>
 
-        <xs:attribute name="vid" type="xs:IDREF" />
-        <xs:attribute name="kid" type="xs:ID" />
+        <xs:attribute name="vid" type="xs:IDREF" use="required" />
+        <xs:attribute name="kid" type="xs:ID" use="required" />
     </xs:complexType>
 
     <xs:complexType name="erintiTipus">
@@ -60,8 +124,8 @@
             <xs:element name="vegallomas" type="xs:boolean" />
         </xs:sequence>
 
-        <xs:attribute name="vid" type="xs:IDREF" />
-        <xs:attribute name="aid" type="xs:IDREF" />
+        <xs:attribute name="vid" type="xs:IDREF" use="required" />
+        <xs:attribute name="aid" type="xs:IDREF" use="required" />
     </xs:complexType>
 
     <xs:complexType name="utasTipus">
@@ -70,7 +134,7 @@
             <xs:element name="email" type="xs:string" maxOccurs="unbounded" />
         </xs:sequence>
 
-        <xs:attribute name="uid" type="xs:ID" />
+        <xs:attribute name="uid" type="xs:ID" use="required" />
     </xs:complexType>
 
     <xs:complexType name="jegyTipus">
@@ -84,7 +148,7 @@
             <xs:element name="helyjegy" type="helyjegyTipus" minOccurs="0" />
         </xs:sequence>
 
-        <xs:attribute name="jid" type="xs:ID" />
+        <xs:attribute name="jid" type="xs:ID" use="required" />
     </xs:complexType>
 
     <xs:complexType name="helyjegyTipus">
@@ -94,6 +158,6 @@
             <xs:element name="ar" type="xs:integer" />
         </xs:sequence>
 
-        <xs:attribute name="hid" type="xs:ID" />
+        <xs:attribute name="hid" type="xs:ID" use="required" />
     </xs:complexType>
 </xs:schema>
