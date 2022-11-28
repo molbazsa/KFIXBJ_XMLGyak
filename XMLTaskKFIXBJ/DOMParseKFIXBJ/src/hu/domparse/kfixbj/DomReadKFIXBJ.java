@@ -18,19 +18,22 @@ import org.xml.sax.SAXException;
 
 public class DomReadKFIXBJ {
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
-        File xmlFile = new File("../XMLKFIXBJ.xml");
+        Document doc = parseXMLFile(new File("../XMLKFIXBJ.xml"));
+        printDocument(doc);
 
+        PrintStream out = new PrintStream(new FileOutputStream("XMLKFIXBJ.txt"));
+        System.setOut(out);
+        printDocument(doc);
+    }
+
+    public static Document parseXMLFile(File xmlFile) throws ParserConfigurationException, IOException, SAXException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
 
         Document doc = builder.parse(xmlFile);
         doc.getDocumentElement().normalize();
 
-        printDocument(doc);
-
-        PrintStream out = new PrintStream(new FileOutputStream("XMLKFIXBJ.txt"));
-        System.setOut(out);
-        printDocument(doc);
+        return doc;
     }
 
     public static void printDocument(Document doc) {
