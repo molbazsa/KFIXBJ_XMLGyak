@@ -18,25 +18,33 @@ import org.xml.sax.SAXException;
 
 public class DomQueryKFIXBJ {
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
-        Document doc = DomReadKFIXBJ.parseXMLFile(new File("../XMLKFIXBJ.xml"));
+        Document doc = DomReadKFIXBJ.parseXMLFile(new File("../XMLKFIXBJ.xml"), new File("../XMLSchemaKFIXBJ.xsd"));
+
+        String jid;
+        String aid;
+        String vid;
 
         // Utazás lekérdezése jegy ID-ja alapján
-        query1(doc, "j1");
+        jid = "j1";
+        query1(doc, jid);
 
         // Mely vonat érint adott állomást
-        query2(doc, "a3");
+        aid = "a3";
+        query2(doc, aid);
 
         // Adott állomást mely napokon érint vonat
-        query3(doc, "a2");
+        aid = "a2";
+        query3(doc, aid);
 
         // Adott vonat menetideje
-        query4(doc, "v3");
+        vid = "v3";
+        query4(doc, vid);
 
         // Állomások, amelyek 165 km-nél közelebb vannak
         query5(doc);
     }
 
-    public static void query1(Document doc, String jid) {
+    private static void query1(Document doc, String jid) {
         String indent = "  ";
 
         Element jegy = getElementById(doc, "jegy", "jid", jid);
@@ -59,7 +67,7 @@ public class DomQueryKFIXBJ {
         System.out.println();
     }
 
-    public static void query2(Document doc, String aid) {
+    private static void query2(Document doc, String aid) {
         Element allomas = getElementById(doc, "allomas", "aid", aid);
         String allomasNev = firstChildTextContent(allomas, "nev");
 
@@ -83,7 +91,7 @@ public class DomQueryKFIXBJ {
         System.out.println();
     }
 
-    public static void query3(Document doc, String aid) {
+    private static void query3(Document doc, String aid) {
         Element allomas = getElementById(doc, "allomas", "aid", aid);
         String allomasNev = firstChildTextContent(allomas, "nev");
 
@@ -112,7 +120,7 @@ public class DomQueryKFIXBJ {
         System.out.println();
     }
 
-    public static void query4(Document doc, String vid) {
+    private static void query4(Document doc, String vid) {
         Element vonat = getElementById(doc, "vonat", "vid", vid);
 
         LocalDateTime indulas = LocalDateTime.parse(firstChildTextContent(vonat, "indulas"));
@@ -127,7 +135,7 @@ public class DomQueryKFIXBJ {
         System.out.println();
     }
 
-    public static void query5(Document doc) {
+    private static void query5(Document doc) {
         NodeList tavolsagaElements = doc.getElementsByTagName("tavolsaga");
 
         for (int i = 0; i < tavolsagaElements.getLength(); i++) {

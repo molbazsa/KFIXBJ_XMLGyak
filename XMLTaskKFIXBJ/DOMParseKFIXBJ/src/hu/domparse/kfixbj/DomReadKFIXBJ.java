@@ -5,9 +5,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -18,7 +21,7 @@ import org.xml.sax.SAXException;
 
 public class DomReadKFIXBJ {
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
-        Document doc = parseXMLFile(new File("../XMLKFIXBJ.xml"));
+        Document doc = parseXMLFile(new File("../XMLKFIXBJ.xml"), new File("../XMLSchemaKFIXBJ.xsd"));
         printDocument(doc);
 
         PrintStream out = new PrintStream(new FileOutputStream("XMLKFIXBJ.txt"));
@@ -26,8 +29,15 @@ public class DomReadKFIXBJ {
         printDocument(doc);
     }
 
-    public static Document parseXMLFile(File xmlFile) throws ParserConfigurationException, IOException, SAXException {
+    public static Document parseXMLFile(File xmlFile, File xsdFile)
+    throws ParserConfigurationException, IOException, SAXException {
+        SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+        Schema schema = schemaFactory.newSchema(xsdFile);
+
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setSchema(schema);
+        factory.setNamespaceAware(true);
+        factory.setIgnoringElementContentWhitespace(true);
         DocumentBuilder builder = factory.newDocumentBuilder();
 
         Document doc = builder.parse(xmlFile);
@@ -36,7 +46,7 @@ public class DomReadKFIXBJ {
         return doc;
     }
 
-    public static void printDocument(Document doc) {
+    private static void printDocument(Document doc) {
         System.out.println("Vonatjegy nyilvántartás");
         System.out.println("=======================");
         System.out.println();
@@ -62,7 +72,7 @@ public class DomReadKFIXBJ {
         }
     }
 
-    public static void printAllomas(Element elem) {
+    private static void printAllomas(Element elem) {
         System.out.println("Állomás");
         System.out.println("-------");
 
@@ -83,7 +93,7 @@ public class DomReadKFIXBJ {
         System.out.println();
     }
 
-    public static void printTavolsaga(Element elem) {
+    private static void printTavolsaga(Element elem) {
         String aid1 = elem.getAttribute("aid1");
         String aid2 = elem.getAttribute("aid2");
 
@@ -94,7 +104,7 @@ public class DomReadKFIXBJ {
         System.out.println();
     }
 
-    public static void printVonat(Element elem) {
+    private static void printVonat(Element elem) {
         System.out.println("Vonat");
         System.out.println("-----");
 
@@ -117,7 +127,7 @@ public class DomReadKFIXBJ {
         System.out.println();
     }
 
-    public static void printKocsi(Element elem) {
+    private static void printKocsi(Element elem) {
         System.out.println("Kocsi");
         System.out.println("-----");
 
@@ -134,7 +144,7 @@ public class DomReadKFIXBJ {
         System.out.println();
     }
 
-    public static void printErinti(Element elem) {
+    private static void printErinti(Element elem) {
         String vid = elem.getAttribute("vid");
         String aid = elem.getAttribute("aid");
 
@@ -145,7 +155,7 @@ public class DomReadKFIXBJ {
         System.out.println();
     }
 
-    public static void printUtas(Element elem) {
+    private static void printUtas(Element elem) {
         System.out.println("Utas");
         System.out.println("----");
 
@@ -167,7 +177,7 @@ public class DomReadKFIXBJ {
         System.out.println();
     }
 
-    public static void printJegy(Element elem) {
+    private static void printJegy(Element elem) {
         System.out.println("Jegy");
         System.out.println("----");
 
@@ -198,7 +208,7 @@ public class DomReadKFIXBJ {
 
     }
 
-    public static void printHelyjegy(Element elem) {
+    private static void printHelyjegy(Element elem) {
         String indent = "  ";
 
         System.out.println("Helyjegy:");
