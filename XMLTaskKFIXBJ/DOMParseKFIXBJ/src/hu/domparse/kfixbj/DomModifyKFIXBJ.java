@@ -11,7 +11,6 @@ import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
@@ -21,13 +20,6 @@ public class DomModifyKFIXBJ {
     public static void main(String[] args)
     throws ParserConfigurationException, TransformerException, IOException, SAXException {
         Document doc = DomReadKFIXBJ.parseXMLFile(new File("../XMLKFIXBJ.xml"), new File("../XMLSchemaKFIXBJ.xsd"));
-
-//        Element root = doc.createElementNS("DOMKFIXBJ", "users");
-//        doc.appendChild(root);
-//
-//        root.appendChild(createUser(doc, "u1", "Balázs", "Molnár", "informatikus"));
-//        root.appendChild(createUser(doc, "u2", "Béla", "Kiss", "pék"));
-//        root.appendChild(createUser(doc, "u1", "Mária", "Tóth", "ügyvéd"));
 
         // Állomások távolságának megkétszerezése
         modify1(doc);
