@@ -32,7 +32,7 @@ public class DomQueryKFIXBJ {
         // Adott vonat menetideje
         query4(doc, "v3");
 
-        // Állomások, amelyek 165 km-nél messzebb vannak
+        // Állomások, amelyek 165 km-nél közelebb vannak
         query5(doc);
     }
 
