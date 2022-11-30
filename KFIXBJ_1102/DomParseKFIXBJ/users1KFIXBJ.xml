@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<users xmlns="DOMKFIXBJ">
+  <user id="u1">
+    <firstname>Balázs</firstname>
+    <lastname>Molnár</lastname>
+    <profession>informatikus</profession>
+  </user>
+  <user id="u2">
+    <firstname>Béla</firstname>
+    <lastname>Kiss</lastname>
+    <profession>pék</profession>
+  </user>
+  <user id="u1">
+    <firstname>Mária</firstname>
+    <lastname>Tóth</lastname>
+    <profession>ügyvéd</profession>
+  </user>
+</users>
