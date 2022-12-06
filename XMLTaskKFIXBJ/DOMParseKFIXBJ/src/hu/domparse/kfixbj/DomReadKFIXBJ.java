@@ -182,19 +182,19 @@ public class DomReadKFIXBJ {
         System.out.println("----");
 
         String id = elem.getAttribute("jid");
+        String utas = elem.getAttribute("uid");
+        String vonat = elem.getAttribute("vid");
+        String allomas1 = elem.getAttribute("aid1");
+        String allomas2 = elem.getAttribute("aid2");
 
         System.out.printf("ID: %s%n", id);
-
-        String utas = elem.getElementsByTagName("utas").item(0).getTextContent();
-        String vonat = elem.getElementsByTagName("vonat").item(0).getTextContent();
-        String allomas1 = elem.getElementsByTagName("allomas1").item(0).getTextContent();
-        String allomas2 = elem.getElementsByTagName("allomas2").item(0).getTextContent();
-        String ar = elem.getElementsByTagName("ar").item(0).getTextContent();
-
         System.out.printf("Utas: %s%n", utas);
         System.out.printf("Vonat: %s%n", vonat);
         System.out.printf("Indulási állomás: %s%n", allomas1);
         System.out.printf("Érkezési állomás: %s%n", allomas2);
+
+        String ar = elem.getElementsByTagName("ar").item(0).getTextContent();
+
         System.out.printf("Ár: %s%n", ar);
 
         Node helyjegy = elem.getElementsByTagName("helyjegy").item(0);
@@ -214,14 +214,14 @@ public class DomReadKFIXBJ {
         System.out.println("Helyjegy:");
 
         String id = elem.getAttribute("hid");
+        String kocsi = elem.getAttribute("kid");
 
         System.out.printf("%sID: %s%n", indent, id);
+        System.out.printf("%sKocsi: %s%n", indent, kocsi);
 
-        String kocsi = elem.getElementsByTagName("kocsi").item(0).getTextContent();
         String ulesszam = elem.getElementsByTagName("ulesszam").item(0).getTextContent();
         String ar = elem.getElementsByTagName("ar").item(0).getTextContent();
 
-        System.out.printf("%sKocsi: %s%n", indent, kocsi);
         System.out.printf("%sÜlésszám: %s%n", indent, ulesszam);
         System.out.printf("%sÁr: %s%n", indent, ar);
     }

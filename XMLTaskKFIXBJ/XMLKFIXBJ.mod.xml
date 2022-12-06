@@ -134,30 +134,17 @@
         <email>pap.hanna@email.com</email>
     </utas>
     <!-- Jegyek -->
-    <jegy jid="j1">
-        <utas>u1</utas>
-        <vonat>v1</vonat>
-        <allomas1>a1</allomas1>
-        <allomas2>a2</allomas2>
+    <jegy aid1="a1" aid2="a2" jid="j1" uid="u1" vid="v1">
         <ar>800</ar>
     </jegy>
-    <jegy jid="j2">
-        <utas>u2</utas>
-        <vonat>v3</vonat>
-        <allomas1>a2</allomas1>
-        <allomas2>a4</allomas2>
+    <jegy aid1="a2" aid2="a4" jid="j2" uid="u2" vid="v3">
         <ar>750</ar>
-        <helyjegy hid="h1">
-            <kocsi>k76</kocsi>
+        <helyjegy hid="h1" kid="k76">
             <ulesszam>12</ulesszam>
             <ar>150</ar>
         </helyjegy>
     </jegy>
-    <jegy jid="j3">
-        <utas>u4</utas>
-        <vonat>v2</vonat>
-        <allomas1>a3</allomas1>
-        <allomas2>a4</allomas2>
+    <jegy aid1="a3" aid2="a4" jid="j3" uid="u4" vid="v2">
         <ar>800</ar>
     </jegy>
 </vonatjegyek>

@@ -49,12 +49,12 @@ public class DomQueryKFIXBJ {
 
         Element jegy = getElementById(doc, "jegy", "jid", jid);
 
-        String uid = firstChildTextContent(jegy, "utas");
+        String uid = jegy.getAttribute("uid");
         Element utas = getElementById(doc, "utas", "uid", uid);
         String utasNev = firstChildTextContent(utas, "nev");
 
-        String aid1 = firstChildTextContent(jegy, "allomas1");
-        String aid2 = firstChildTextContent(jegy, "allomas2");
+        String aid1 = jegy.getAttribute("aid1");
+        String aid2 = jegy.getAttribute("aid2");
         Element allomas1 = getElementById(doc, "allomas", "aid", aid1);
         Element allomas2 = getElementById(doc, "allomas", "aid", aid2);
         String allomasNev1 = firstChildTextContent(allomas1, "nev");
