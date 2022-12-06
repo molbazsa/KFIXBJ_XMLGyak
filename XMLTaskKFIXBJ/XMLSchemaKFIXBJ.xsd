@@ -57,24 +57,24 @@
 
         <xs:keyref name="jegyUtas" refer="utas">
             <xs:selector xpath="jegy" />
-            <xs:field xpath="utas" />
+            <xs:field xpath="@uid" />
         </xs:keyref>
         <xs:keyref name="jegyVonat" refer="vonat">
             <xs:selector xpath="jegy" />
-            <xs:field xpath="vonat" />
+            <xs:field xpath="@vid" />
         </xs:keyref>
         <xs:keyref name="jegyAllomas1" refer="allomas">
             <xs:selector xpath="jegy" />
-            <xs:field xpath="allomas1" />
+            <xs:field xpath="@aid1" />
         </xs:keyref>
         <xs:keyref name="jegyAllomas2" refer="allomas">
             <xs:selector xpath="jegy" />
-            <xs:field xpath="allomas2" />
+            <xs:field xpath="@aid2" />
         </xs:keyref>
 
         <xs:keyref name="helyjegyKocsi" refer="kocsi">
             <xs:selector xpath="jegy/helyjegy" />
-            <xs:field xpath="kocsi" />
+            <xs:field xpath="@kid" />
         </xs:keyref>
     </xs:element>
 
@@ -139,25 +139,24 @@
 
     <xs:complexType name="jegyTipus">
         <xs:sequence>
-            <xs:element name="utas" type="xs:IDREF" />
-            <xs:element name="vonat" type="xs:IDREF" />
-            <xs:element name="allomas1" type="xs:IDREF" />
-            <xs:element name="allomas2" type="xs:IDREF" />
             <xs:element name="ar" type="xs:integer" />
-
             <xs:element name="helyjegy" type="helyjegyTipus" minOccurs="0" />
         </xs:sequence>
 
         <xs:attribute name="jid" type="xs:ID" use="required" />
+        <xs:attribute name="uid" type="xs:IDREF" use="required" />
+        <xs:attribute name="vid" type="xs:IDREF" use="required" />
+        <xs:attribute name="aid1" type="xs:IDREF" use="required" />
+        <xs:attribute name="aid2" type="xs:IDREF" use="required" />
     </xs:complexType>
 
     <xs:complexType name="helyjegyTipus">
         <xs:sequence>
-            <xs:element name="kocsi" type="xs:IDREF" />
             <xs:element name="ulesszam" type="xs:integer" />
             <xs:element name="ar" type="xs:integer" />
         </xs:sequence>
 
+        <xs:attribute name="kid" type="xs:IDREF" use="required" />
         <xs:attribute name="hid" type="xs:ID" use="required" />
     </xs:complexType>
 </xs:schema>
